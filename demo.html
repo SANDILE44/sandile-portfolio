@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Construction Profitability Engine</title>
+
+<!-- DEMO CSS -->
+<link rel="stylesheet" href="demoo.css" />
+
+<style>
+
+/* ================= DECISION UI ================= */
+
+#decision-status {
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+#decision-status.positive { color: #22c55e; }
+#decision-status.caution { color: #f59e0b; }
+#decision-status.negative { color: #ef4444; }
+
+/* OUTPUTS */
+.output-value {
+  font-weight: 600;
+}
+
+.output-value.positive { color: #22c55e; }
+.output-value.negative { color: #ef4444; }
+
+/* INSIGHTS */
+.insights-container details {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.insights-container summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.step {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.02);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="app-shell">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="sidebar-top">
+
+      <div class="sidebar-brand">
+        <img src="images/Untitled design.png" class="sidebar-logo" />
+        <span class="sidebar-name">Sandile SystemsWorks</span>
+      </div>
+
+      <nav class="sidebar-nav">
+
+        <a href="#" class="nav-link active">
+          <i data-lucide="hard-hat"></i>
+          <span>Construction Tool</span>
+        </a>
+
+        <hr class="sidebar-divider" />
+
+        <a href="#" class="nav-link">
+          <i data-lucide="layout-grid"></i>
+          <span>Dashboard Preview</span>
+        </a>
+
+        <a href="#" class="nav-link">
+          <i data-lucide="bookmark"></i>
+          <span>Saved Deals</span>
+        </a>
+
+      </nav>
+
+    </div>
+
+    <div class="sidebar-bottom">
+
+      <div class="sidebar-account">
+
+        <button class="account-btn">
+          <span class="account-avatar">S</span>
+
+          <div class="account-info">
+            <span class="account-name">Demo Account</span>
+            <i data-lucide="chevron-up" class="chevron"></i>
+          </div>
+        </button>
+
+      </div>
+
+    </div>
+
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!-- MOBILE HAMBURGER -->
+    <button id="hamburger" class="hamburger" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- PRINT HEADER -->
+    <div id="print-header" class="print-only">
+
+      <div class="brand-row">
+
+        <img src="images/Untitled design.png" alt="Logo" class="print-logo" />
+
+        <div class="brand-text">
+          <h2>Sandile SystemsWorks</h2>
+          <p>Project Intelligence & Profitability Report</p>
+        </div>
+
+      </div>
+
+      <div class="report-meta-row">
+        <div><strong>Project:</strong> Demo Project</div>
+        <div><strong>Date:</strong> 2026</div>
+      </div>
+
+    </div>
+
+    <h1>Construction Profitability Decision Engine</h1>
+    <p>Project cost, margin and contract intelligence system.</p>
+
+    <div class="calculator-container">
+
+      <div class="calculator-grid">
+
+        <!-- INPUTS -->
+        <div class="input-section">
+
+          <h3>Inputs</h3>
+
+          <div class="input-group">
+            <label>PROJECT / CLIENT NAME</label>
+            <input id="client-name-input" type="text" placeholder="e.g. Standard Bank Office Upgrade" />
+          </div>
+
+          <div class="input-group">
+            <label>Contract Value</label>
+            <input id="const-value" type="number" placeholder="Contract Value" />
+          </div>
+
+          <div class="input-group">
+            <label>Material Cost</label>
+            <input id="const-material" type="number" placeholder="Material Cost" />
+          </div>
+
+          <div class="input-group">
+            <label>Labor Cost (Monthly)</label>
+            <input id="const-labor" type="number" placeholder="Labor Cost" />
+          </div>
+
+          <div class="input-group">
+            <label>Equipment Cost</label>
+            <input id="const-equipment" type="number" placeholder="Equipment Cost" />
+          </div>
+
+          <div class="input-group">
+            <label>Fixed Costs</label>
+            <input id="const-fixed" type="number" placeholder="Fixed Costs" />
+          </div>
+
+          <div class="input-group">
+            <label>Duration (Months)</label>
+            <input id="const-duration" type="number" placeholder="Duration" />
+          </div>
+
+          <button id="calculateBtn" class="saveDealBtn">
+            <i data-lucide="cpu"></i>
+            <span>Run Intelligence</span>
+          </button>
+
+        </div>
+
+        <!-- OUTPUTS -->
+        <div class="output-section">
+
+          <h3>Decision</h3>
+
+          <div id="decision-status">AWAITING_INPUT</div>
+
+          <div id="decision-advice">
+            Enter project metrics to generate profitability intelligence.
+          </div>
+
+          <br>
+
+          <!-- PRIMARY ACTIONS -->
+          <div class="action-stack">
+
+            <button class="saveDealBtn">
+              <i data-lucide="save"></i>
+              <span>Save Deal</span>
+            </button>
+
+            <button class="saveDealBtn share-theme">
+              <i data-lucide="share-2"></i>
+              <span>Share Deal</span>
+            </button>
+
+          </div>
+
+          <!-- EXPORTS -->
+          <div class="export-group">
+
+            <button class="exportBtn">
+              <i data-lucide="file-spreadsheet"></i>
+              <span>Export CSV</span>
+            </button>
+
+            <button class="exportBtn">
+              <i data-lucide="file-text"></i>
+              <span>Export Report</span>
+            </button>
+
+          </div>
+
+          <br>
+
+          <h3>Key Metrics</h3>
+
+          <div class="output-group">
+            <div class="output-label">Total Costs</div>
+            <div class="output-value" id="const-total-costs">R 0</div>
+          </div>
+
+          <div class="output-group">
+            <div class="output-label">Profit</div>
+            <div class="output-value" id="const-profit">R 0</div>
+          </div>
+
+          <div class="output-group">
+            <div class="output-label">Margin</div>
+            <div class="output-value" id="const-margin">0%</div>
+          </div>
+
+          <div class="output-group">
+            <div class="output-label">ROI</div>
+            <div class="output-value" id="const-roi">0%</div>
+          </div>
+
+          <h3>Break-even</h3>
+
+          <div class="output-group">
+            <div class="output-label">Break-even</div>
+            <div class="output-value" id="const-breakeven">R 0</div>
+          </div>
+
+          <div class="output-group">
+            <div class="output-label">Monthly Profit</div>
+            <div class="output-value" id="const-monthly-profit">R 0</div>
+          </div>
+
+          <div class="output-group">
+            <div class="output-label">Annual Profit</div>
+            <div class="output-value" id="const-annual-profit">R 0</div>
+          </div>
+
+          <!-- INSIGHTS -->
+          <h3>Insights</h3>
+
+          <div class="insights-container" id="const-insights">
+
+            <details open>
+              <summary>Project Intelligence</summary>
+
+              <div class="step">
+                Demo version initialized successfully.
+              </div>
+
+            </details>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
+
+<!-- DEMO JS -->
+<script src="demo.js"></script>
+
+<!-- LUCIDE -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<script>
+  lucide.createIcons();
+</script>
+
+</body>
+</html>
