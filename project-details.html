@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales & Profitability Intelligence | Project Deep-Dive</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        .deep-dive-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .back-nav {
+            margin-bottom: 30px;
+        }
+        .back-nav a {
+            color: #00ffcc;
+            text-decoration: none;
+            font-family: 'Space Grotesk', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+        .back-nav a:hover {
+            text-decoration: underline;
+        }
+        .project-hero-header {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+        .project-hero-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .content-section {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        .content-section h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #00ffcc;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+        .content-section h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        pre {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+            overflow-x: auto;
+            color: #c9d1d9;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            margin: 15px 0;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .pdf-embed-container {
+            margin-top: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            background: #0d1117;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Sandile<span>Systems</span></div>
+            <div class="status-badge pulse">Available for Strategic Roles</div>
+        </nav>
+    </header>
+
+    <div class="deep-dive-container">
+        <!-- Back Navigation -->
+        <div class="back-nav">
+            <a href="index.html">
+                <iconify-icon icon="lucide:arrow-left"></iconify-icon> Back to Portfolio
+            </a>
+        </div>
+
+        <!-- Project Hero Header -->
+        <div class="project-hero-header">
+            <div class="status-chip secondary">BI & FINANCIAL ANALYTICS</div>
+            <h1>Sales & Profitability Intelligence Project</h1>
+            <p class="hero-subtext">
+                An end-to-end data intelligence pipeline featuring a normalized MySQL relational database schema, advanced analytical SQL querying, and an interactive executive Power BI dashboard built to evaluate multi-region business performance.
+            </p>
+            
+            <!-- PDF Dashboard Preview Embed -->
+            <div class="pdf-embed-container">
+                <div style="padding: 15px 20px; background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.08); font-family: 'Space Grotesk', sans-serif; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="color: #00ffcc; font-weight: 500;">Power BI Executive Dashboard Preview</span>
+                    <a href="Sales.pdf" target="_blank" style="color: #fff; font-size: 0.85rem; text-decoration: none; background: rgba(255,255,255,0.1); padding: 5px 10px; border-radius: 4px;">Open PDF Fullscreen ↗</a>
+                </div>
+                <iframe src="Sales.pdf" width="100%" height="600px" style="border: none;"></iframe>
+            </div>
+
+            <ul class="tech-tags" style="display: flex; gap: 10px; list-style: none; padding: 0; margin-top: 25px; flex-wrap: wrap;">
+                <li style="background: rgba(255,255,255,0.05); padding: 6px 12px; border-radius: 6px; font-size: 0.85rem;">MySQL DDL/DML</li>
+                <li style="background: rgba(255,255,255,0.05); padding: 6px 12px; border-radius: 6px; font-size: 0.85rem;">Relational Star Schema</li>
+                <li style="background: rgba(255,255,255,0.05); padding: 6px 12px; border-radius: 6px; font-size: 0.85rem;">Power BI DAX Measures</li>
+                <li style="background: rgba(255,255,255,0.05); padding: 6px 12px; border-radius: 6px; font-size: 0.85rem;">Geospatial Mapping</li>
+            </ul>
+        </div>
+
+        <!-- Section: Entity Relationship & Data Model -->
+        <div class="content-section">
+            <h2>Entity Relationship & Data Model</h2>
+            <p>The schema design connecting the <code>customers</code>, <code>products</code>, and <code>sales</code> tables via primary-to-foreign key relationships to form a robust star schema for analytics.</p>
+            <div style="margin-top: 20px; text-align: center;">
+                <img src="images/Screenshot 2026-10-18 102031.png" alt="Database Relationships and Star Schema" style="width: 100%; max-width: 800px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+            </div>
+        </div>
+
+        <!-- Section: Raw Relational Data Tables -->
+        <div class="content-section">
+            <h2>Raw Relational Data Models</h2>
+            <p>A look at the underlying normalized relational tables and transaction logs powering the business intelligence pipeline.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+                <div>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 8px;">1. Customers Table</h3>
+                    <img src="images/Screenshot 2026-10-18 102149.png" alt="Customers Table" style="width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+                </div>
+                <div>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 8px;">2. Products Table</h3>
+                    <img src="images/Screenshot 2026-10-18 102209.png" alt="Products Table" style="width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+                </div>
+                <div>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 8px;">3. Sales Table (Part 1)</h3>
+                    <img src="images/Screenshot 2026-10-18 102312.png" alt="Sales Table Part 1" style="width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+                </div>
+                <div>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 8px;">4. Sales Table (Part 2)</h3>
+                    <img src="images/Screenshot 2026-10-18 102329.png" alt="Sales Table Part 2" style="width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 1: Database Setup & Architecture -->
+        <div class="content-section">
+            <h2>Database Architecture & Schema Setup</h2>
+            <p>The project initiates with a clean, normalized relational database structure consisting of <code>customers</code>, <code>products</code>, and <code>sales</code> tables linked via foreign key constraints, populated with South African business transaction data spanning January to May 2026.</p>
+            <pre><code>-- Create database
+DROP DATABASE IF EXISTS sales_profitability;
+CREATE DATABASE sales_profitability;
+USE sales_profitability;
+
+-- Customers Table
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    customer_name VARCHAR(100),
+    customer_type VARCHAR(50),
+    city VARCHAR(100),
+    province VARCHAR(100)
+);
+
+-- Products Table
+CREATE TABLE products (
+    product_id INT PRIMARY KEY,
+    product_name VARCHAR(100),
+    category VARCHAR(100),
+    unit_price DECIMAL(10,2),
+    unit_cost DECIMAL(10,2)
+);
+
+-- Sales Table
+CREATE TABLE sales (
+    sale_id INT PRIMARY KEY,
+    sale_date DATE,
+    customer_id INT,
+    product_id INT,
+    quantity INT,
+    discount DECIMAL(10,2),
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
+    FOREIGN KEY (product_id) REFERENCES products(product_id)
+);</code></pre>
+        </div>
+
+        <!-- Section 2: Core & Advanced SQL Analytical Queries -->
+        <div class="content-section">
+            <h2>Analytical SQL Query Suite</h2>
+            <p>To extract granular business insights, a robust suite of analytical queries was written covering overall KPIs, monthly trends, product profitability, and regional performance.</p>
+
+            <h3>Overall Business KPIs Query</h3>
+            <pre><code>SELECT
+    SUM((s.quantity * p.unit_price) - s.discount) AS total_revenue,
+    SUM(s.quantity * p.unit_cost) AS total_cost,
+    SUM((s.quantity * p.unit_price) - s.discount) - SUM(s.quantity * p.unit_cost) AS gross_profit,
+    ROUND(
+        (
+            SUM((s.quantity * p.unit_price) - s.discount) - SUM(s.quantity * p.unit_cost)
+        ) / SUM((s.quantity * p.unit_price) - s.discount) * 100, 2
+    ) AS profit_margin
+FROM sales s
+JOIN products p ON s.product_id = p.product_id;</code></pre>
+
+            <h3>Monthly Performance Trend Query</h3>
+            <pre><code>SELECT
+    DATE_FORMAT(s.sale_date, '%Y-%m') AS month,
+    SUM((s.quantity * p.unit_price) - s.discount) AS revenue,
+    SUM(s.quantity * p.unit_cost) AS cost,
+    SUM((s.quantity * p.unit_price) - s.discount) - SUM(s.quantity * p.unit_cost) AS gross_profit
+FROM sales s
+JOIN products p ON s.product_id = p.product_id
+GROUP BY DATE_FORMAT(s.sale_date, '%Y-%m')
+ORDER BY month;</code></pre>
+
+            <h3>Product Profitability Ranking Query</h3>
+            <pre><code>SELECT
+    p.product_name,
+    p.category,
+    SUM((s.quantity * p.unit_price) - s.discount) AS revenue,
+    SUM(s.quantity * p.unit_cost) AS cost,
+    SUM((s.quantity * p.unit_price) - s.discount) - SUM(s.quantity * p.unit_cost) AS gross_profit
+FROM sales s
+JOIN products p ON s.product_id = p.product_id
+GROUP BY p.product_id, p.product_name, p.category
+ORDER BY gross_profit DESC;</code></pre>
+
+            <h3>Unsold Inventory Detection (Left Join Analysis)</h3>
+            <pre><code>SELECT
+    p.product_id,
+    p.product_name,
+    p.category
+FROM products p
+LEFT JOIN sales s ON p.product_id = s.product_id
+WHERE s.product_id IS NULL;</code></pre>
+        </div>
+
+        <!-- Section 3: Power BI Executive Dashboard Design -->
+        <div class="content-section">
+            <h2>Power BI Executive Dashboard Design</h2>
+            <p>The structured data model was imported into Power BI to create an executive reporting canvas configured with interactive filtering and visual storytelling components.</p>
+            <h3>Dashboard Layout & Visual Components:</h3>
+            <ul style="line-height: 1.8; margin-left: 20px; color: #c9d1d9;">
+                <li><strong>Net Revenue by Year, Quarter and Month (Line/Area Chart):</strong> Tracks chronological growth and revenue trajectory from Jan 2026 to May 2026[cite: 1].</li>
+                <li><strong>Geospatial Regional Map:</strong> Visualizes distribution across key South African provinces (including Gauteng, KwaZulu-Natal, Western Cape, Eastern Cape, Free State, and Mpumalanga) alongside major commercial nodes[cite: 1].</li>
+                <li><strong>Interactive Slicers & Filters:</strong> Enables dynamic filtering by <code>customer_name</code> (e.g., Bayview Hardware, Coastal Cafe, Khula Supplies, Mandla Construction) and <code>province</code>[cite: 1].</li>
+            </ul>
+        </div>
+
+       
+
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <h2>Available for Strategic Engineering & Analytical Roles</h2>
+            <div class="contact-grid">
+                <p><strong>Direct:</strong> 083 306 2796</p>
+                <p><strong>WhatsApp:</strong> 071 737 8540</p>
+                <p><strong>Email:</strong> thabethesandile44@gmail.com</p>
+            </div>
+            <p class="location-tag">Richards Bay, SA | Remote Friendly | Global Standards</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
